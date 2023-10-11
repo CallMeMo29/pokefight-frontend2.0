@@ -1,4 +1,5 @@
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -10,7 +11,10 @@ function HomePage() {
         <div className="main-container">
           <img className="main-img" src="/Daco_5392079.png" alt="pokemons" />
           <div className="main-button-container">
-            <button className="main-button">Create Account</button>
+            <button className="main-button">
+              {" "}
+              <Link to="/pokemon-list">Create Account</Link>
+            </button>
           </div>
         </div>
       </main>
