@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 
 // Import other necessary modules here
 function Battle () {
-    return (
-        
+    return (        
         <div className="layer">
             <h1 id = "BattleTitle" >BATTLEMON</h1><br/>
             <div className='orange'>
@@ -27,7 +26,17 @@ function Battle () {
                         <div className="Speed"></div>
                     </div>
                 </div>
-                <div className='red'></div>
+                <div className='red'>
+                <div className='green'>
+                        <div className="PokeName"></div>
+                        <div className="Hp"></div>
+                    </div>
+                    <div className="violett">
+                        <div className="Attack"></div>
+                        <div className="Defense"></div>
+                        <div className="Speed"></div>
+                    </div>
+                </div>
             </div>
         </div>
     );
