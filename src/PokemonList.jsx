@@ -58,7 +58,7 @@ function PokemonList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000");
+        const response = await axios.get("http://localhost:8000/pokemon");
         const allPokemon = response.data;
 
         const pokemonWithImages = allPokemon.filter((pokemon) =>
