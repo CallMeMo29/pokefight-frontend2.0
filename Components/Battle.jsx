@@ -15,33 +15,9 @@ function Battle () {
                 <img className='VS' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Wh9u0_5GpwFrXeoY9sWrNlqx7Wz-pkDlSw&usqp=CAU' alt='VS' />
                 <img className='COM' src="https://images.secretlab.co/theme/common/collab_pokemon_catalog_charizard-min.png" alt="Computer" />
             </div>
-            {/* <div className='blue'>
-                {/* This is where the battle will be rendered 
-                <div className='red'>
-                    <div className='green'>
-                        <div className="PokeName"></div>
-                        <div className="Hp"></div>
-                    </div>
-                    <div className="violett">
-                        <div className="Attack"></div>
-                        <div className="Defense"></div>
-                        <div className="Speed"></div>
-                    </div>
-                </div>
-                <div className='red'>
-                    <div className='green'>
-                        <div className="PokeName"></div>
-                        <div className="Hp"></div>
-                    </div>
-                    <div className="violett">
-                        <div className="Attack"></div>
-                        <div className="Defense"></div>
-                        <div className="Speed"></div>
-                    </div>
-                </div>
-            </div> */}
- <div className="battle-container">
-  <div className="battle-info">
+
+ <div className="battle-container" alt='blue'>
+  <div className="battle-info" alt='red'>
     <div className="player-stats">
       <div id="player-name" className="PokeName"></div>
       <div id="player-hp" className="Hp"></div>
@@ -69,3 +45,29 @@ function Battle () {
     );
 }
 export default Battle;
+
+            {/* <div className='blue'>
+                {/* This is where the battle will be rendered 
+                <div className='red'>
+                    <div className='green'>
+                        <div className="PokeName"></div>
+                        <div className="Hp"></div>
+                    </div>
+                    <div className="violett">
+                        <div className="Attack"></div>
+                        <div className="Defense"></div>
+                        <div className="Speed"></div>
+                    </div>
+                </div>
+                <div className='red'>
+                    <div className='green'>
+                        <div className="PokeName"></div>
+                        <div className="Hp"></div>
+                    </div>
+                    <div className="violett">
+                        <div className="Attack"></div>
+                        <div className="Defense"></div>
+                        <div className="Speed"></div>
+                    </div>
+                </div>
+            </div> */}
