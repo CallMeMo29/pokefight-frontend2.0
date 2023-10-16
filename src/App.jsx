@@ -1,19 +1,18 @@
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./HomePage.css";
-import HomePage from "./HomePage.jsx";
-import PokemonList from "./PokemonList.jsx";
+import HomePage from "../Components/HomePage.jsx";
+import PokemonList from "../Components/PokemonList.jsx";
+import Battle from "../Components/Battle.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/pokemon-list" element={<PokemonList />} />
+        {/* <Route path="/battle" element={<Battle />} /> */}
+        <Route path="/battle/:id" element={<Battle />} />
       </Routes>
     </div>
   );
