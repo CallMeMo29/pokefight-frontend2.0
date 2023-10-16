@@ -1,3 +1,53 @@
-.layer {
+body {
     background-color: blue;
+    background-size: cover;
 }
+
+.orange {
+    color: orange;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.battle-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.battle-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 43px;
+    background: #000ba8;
+    box-shadow: inset 30px 30px 60px #000443,
+            inset -30px -30px 60px #0012ff;
+
+    
+}
+
+.player-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+}
+
+.player-attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.computer-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.computer-attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+

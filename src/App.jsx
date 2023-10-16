@@ -14,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/pokemon-list" element={<PokemonList />} />
-        
       </Routes>
     </div>
   );
