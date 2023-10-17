@@ -2,46 +2,79 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./battle.css";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 function Battle() {
   const { id } = useParams();
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [opponentPokemon, setOpponentPokemon] = useState(null);
 
+  // const performBattle = () => {
+  //   if (selectedPokemon && opponentPokemon) {
+  //     const randomAttribute = Math.floor(Math.random() * 3);
+
+  //     let selectedAttribute, opponentAttribute;
+
+  //     if (randomAttribute === 0) {
+  //       selectedAttribute = selectedPokemon.base.Speed;
+  //       opponentAttribute = opponentPokemon.base.Speed;
+  //     } else if (randomAttribute === 1) {
+  //       selectedAttribute = selectedPokemon.base.Attack;
+  //       opponentAttribute = opponentPokemon.base.Attack;
+  //     } else {
+  //       selectedAttribute = selectedPokemon.base.Defense;
+  //       opponentAttribute = opponentPokemon.base.Defense;
+  //     }
+
+  //     let winner = "No one";
+
+  //     if (selectedAttribute > opponentAttribute) {
+  //       winner = selectedPokemon.name.english;
+  //     } else if (selectedAttribute < opponentAttribute) {
+  //       winner = opponentPokemon.name.english;
+  //     }
+
+  //     swal({
+  //       title: `Good job! ${winner} wins the battle with ${selectedAttribute} against ${opponentAttribute}!`,
+  //       text: "",
+  //       icon: "success",
+  //       button: "OK!",
+  //     });
+  //   }
+  // };
+
   const performBattle = () => {
     if (selectedPokemon && opponentPokemon) {
-      const randomAttribute = Math.floor(Math.random() * 3);
+      const selectedSpeed = selectedPokemon.base.Speed;
+      const selectedAttack = selectedPokemon.base.Attack;
+      const selectedDefense = selectedPokemon.base.Defense;
 
-      let selectedAttribute, opponentAttribute;
-
-      if (randomAttribute === 0) {
-        selectedAttribute = selectedPokemon.base.Speed;
-        opponentAttribute = opponentPokemon.base.Speed;
-      } else if (randomAttribute === 1) {
-        selectedAttribute = selectedPokemon.base.Attack;
-        opponentAttribute = opponentPokemon.base.Attack;
-      } else {
-        selectedAttribute = selectedPokemon.base.Defense;
-        opponentAttribute = opponentPokemon.base.Defense;
-      }
+      const opponentSpeed = opponentPokemon.base.Speed;
+      const opponentAttack = opponentPokemon.base.Attack;
+      const opponentDefense = opponentPokemon.base.Defense;
 
       let winner = "No one";
 
-      if (selectedAttribute > opponentAttribute) {
+      if (selectedSpeed > opponentSpeed) {
         winner = selectedPokemon.name.english;
-      } else if (selectedAttribute < opponentAttribute) {
+      } else if (selectedSpeed < opponentSpeed) {
+        winner = opponentPokemon.name.english;
+      } else if (selectedAttack > opponentAttack) {
+        winner = selectedPokemon.name.english;
+      } else if (selectedAttack < opponentAttack) {
+        winner = opponentPokemon.name.english;
+      } else if (selectedDefense > opponentDefense) {
+        winner = selectedPokemon.name.english;
+      } else if (selectedDefense < opponentDefense) {
         winner = opponentPokemon.name.english;
       }
 
       swal({
-        title: `Good job! ${winner} wins the battle with ${selectedAttribute} against ${opponentAttribute}!`,
+        title: `Good job! ${winner} wins the battle!`,
         text: "",
         icon: "success",
         button: "OK!",
-        
       });
-
     }
   };
 
@@ -75,7 +108,10 @@ function Battle() {
           [1, 2, 4, 7, 10, 17, 19, 21, 23, 26, 28, 30].includes(pokemon.id)
         );
 
-        const randomOpponent = selectRandomOpponent(newPokemon);
+        let randomOpponent;
+        do {
+          randomOpponent = selectRandomOpponent(newPokemon);
+        } while (randomOpponent.id === selectedPokemon?.id);
 
         setOpponentPokemon(randomOpponent);
       } catch (error) {
@@ -83,8 +119,11 @@ function Battle() {
       }
     };
 
-    fetchOpponentData();
-  }, []);
+    if (selectedPokemon) {
+      fetchOpponentData();
+    }
+  }, [selectedPokemon]);
+
   return (
     <>
       <div className="title">
