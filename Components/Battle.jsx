@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./battle.css";
+import swal from 'sweetalert';
 
 function Battle() {
   const { id } = useParams();
@@ -33,9 +34,14 @@ function Battle() {
         winner = opponentPokemon.name.english;
       }
 
-      alert(
-        `${winner} wins the battle with ${selectedAttribute} against ${opponentAttribute}!`
-      );
+      swal({
+        title: `Good job! ${winner} wins the battle with ${selectedAttribute} against ${opponentAttribute}!`,
+        text: "",
+        icon: "success",
+        button: "OK!",
+        
+      });
+
     }
   };
 
