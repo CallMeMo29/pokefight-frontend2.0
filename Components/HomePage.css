@@ -29,6 +29,7 @@
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
+  display: flex;
 }
 
 .home-header h1 {
@@ -54,24 +55,30 @@
 }
 
 .main-button {
-  background-color: #ffd43b;
+  background-color: #fce72a;
   font-family: Arial, sans-serif;
+  font-weight: bold;
   color: #002857;
   font-size: 20px;
   padding: 15px 24px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  margin-left: 20px;
+  align-items: center;
+  display: flex;
 }
 
 .main-button:hover {
-  background-color: #a9020278;
-  color: #ffd43b;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s;
+  transform: scale(1.12, 1.12);
 }
 
 .main-button:active {
   transform: scale(0.98);
   transition: transform 0.1s;
+}
+a {
+  text-decoration: none;
+  color: #002857;
 }
