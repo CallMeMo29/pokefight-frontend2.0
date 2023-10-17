@@ -9,6 +9,7 @@ function Battle() {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [opponentPokemon, setOpponentPokemon] = useState(null);
 
+  /*
   const performBattle = () => {
     if (selectedPokemon && opponentPokemon) {
       
@@ -45,6 +46,38 @@ function Battle() {
       }
 
       alert(`${winner} wins the battle!`);
+    }
+  };
+  */
+
+  const performBattle = () => {
+    if (selectedPokemon && opponentPokemon) {
+     
+      const randomAttribute = Math.floor(Math.random() * 3); 
+  
+      let selectedAttribute, opponentAttribute;
+      
+      if (randomAttribute === 0) {
+        selectedAttribute = selectedPokemon.base.Speed;
+        opponentAttribute = opponentPokemon.base.Speed;
+      } else if (randomAttribute === 1) {
+        selectedAttribute = selectedPokemon.base.Attack;
+        opponentAttribute = opponentPokemon.base.Attack;
+      } else {
+        selectedAttribute = selectedPokemon.base.Defense;
+        opponentAttribute = opponentPokemon.base.Defense;
+      }
+  
+      
+      let winner = "No one";
+  
+      if (selectedAttribute > opponentAttribute) {
+        winner = selectedPokemon.name.english;
+      } else if (selectedAttribute < opponentAttribute) {
+        winner = opponentPokemon.name.english;
+      }
+  
+      alert(`${winner} wins the battle with ${selectedAttribute} against ${opponentAttribute}!`);
     }
   };
 
